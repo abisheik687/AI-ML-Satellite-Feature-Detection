@@ -1,0 +1,27 @@
+graph LR
+    A[Web Dashboard] --> B(REST API)
+    B --> C{Geospatial Processing}
+    B --> D{Deep Learning Inference}
+    C --> E[Database]
+    D --> E
+
+    subgraph Data Sources
+        F[Satellite Imagery]
+        G[Elevation Models]
+        H[Reference Data]
+    end
+
+    F --> C
+    G --> C
+    H --> C
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#bfb,stroke:#333,stroke-width:2px
+    style F fill:#ccf,stroke:#333,stroke-width:2px
+    style G fill:#ccf,stroke:#333,stroke-width:2px
+    style H fill:#ccf,stroke:#333,stroke-width:2px
+
+

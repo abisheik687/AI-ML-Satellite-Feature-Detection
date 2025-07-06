@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/ML-Powered Geospatial Analysis Pipeline</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1><i class="fas fa-satellite"></i> AI/ML Geospatial Analysis Pipeline</h1>
+                <div class="status-indicators">
+                    <div class="status-item">
+                        <span class="status-dot active"></span>
+                        <span>Pipeline Active</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot processing"></span>
+                        <span>Processing</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="overview">
+                    <i class="fas fa-chart-line"></i> Overview
+                </button>
+                <button class="nav-tab" data-tab="glacial-lakes">
+                    <i class="fas fa-water"></i> Glacial Lakes
+                </button>
+                <button class="nav-tab" data-tab="roads">
+                    <i class="fas fa-road"></i> Road Centrelines
+                </button>
+                <button class="nav-tab" data-tab="drainage">
+                    <i class="fas fa-stream"></i> Urban Drainage
+                </button>
+                <button class="nav-tab" data-tab="performance">
+                    <i class="fas fa-tachometer-alt"></i> Performance
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="overview-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Glacial Lakes Detected</h3>
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="metric-value">1,247</div>
+                        <div class="metric-change positive">+12% from last month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Road Network Coverage</h3>
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <div class="metric-value">89.3%</div>
+                        <div class="metric-change positive">+2.1% accuracy</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Drainage Systems Mapped</h3>
+                            <i class="fas fa-stream"></i>
+                        </div>
+                        <div class="metric-value">456</div>
+                        <div class="metric-change neutral">Stable</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Processing Speed</h3>
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="metric-value">2.3s</div>
+                        <div class="metric-change positive">-15% faster</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Model Performance Overview</h3>
+                    <div id="overview-chart"></div>
+                </div>
+            </div>
+
+            <!-- Glacial Lakes Tab -->
+            <div class="tab-content" id="glacial-lakes">
+                <div class="feature-section">
+                    <div class="section-header">
+                        <h2>Glacial Lakes Detection & Monitoring</h2>
+                        <div class="controls">
+                            <label for="time-slider">Time Period:</label>
+                            <input type="range" id="time-slider" min="2020" max="2024" value="2024" step="1">
+                            <span id="time-display">2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-grid">
+                        <div class="map-container">
+                            <div id="glacial-map"></div>
+                        </div>
+                        <div class="metrics-panel">
+                            <h3>Detection Metrics</h3>
+                            <div class="metric-item">
+                                <span class="metric-label">IoU Score:</span>
+                                <span class="metric-value">0.87</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Precision:</span>
+                                <span class="metric-value">0.92</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Recall:</span>
+                                <span class="metric-value">0.89</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">F1-Score:</span>
+                                <span class="metric-value">0.90</span>
+                            </div>
+                            
+                            <h3>Temporal Analysis</h3>
+                            <div id="temporal-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roads Tab -->
+            <div class="tab-content" id="roads">
+                <div class="feature-section">
+                    <div class="section-header">
+                        <h2>Road Centrelines Extraction</h2>
+                        <div class="controls">
+                            <button class="btn-secondary">Toggle Reference Data</button>
+                            <button class="btn-primary">Export Results</button>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-grid">
+                        <div class="map-container">
+                            <div id="roads-map"></div>
+                        </div>
+                        <div class="metrics-panel">
+                            <h3>Extraction Metrics</h3>
+                            <div class="metric-item">
+                                <span class="metric-label">Buffer Overlap:</span>
+                                <span class="metric-value">89.3%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Completeness:</span>
+                                <span class="metric-value">91.7%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Connectivity:</span>
+                                <span class="metric-value">94.2%</span>
+                            </div>
+                            
+                            <h3>Network Statistics</h3>
+                            <div id="roads-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drainage Tab -->
+            <div class="tab-content" id="drainage">
+                <div class="feature-section">
+                    <div class="section-header">
+                        <h2>Urban Drainage Systems</h2>
+                        <div class="controls">
+                            <select id="drainage-layer">
+                                <option value="streams">Stream Networks</option>
+                                <option value="flow">Flow Direction</option>
+                                <option value="accumulation">Flow Accumulation</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-grid">
+                        <div class="map-container">
+                            <div id="drainage-map"></div>
+                        </div>
+                        <div class="metrics-panel">
+                            <h3>Hydrological Metrics</h3>
+                            <div class="metric-item">
+                                <span class="metric-label">Network Accuracy:</span>
+                                <span class="metric-value">86.5%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Connectivity:</span>
+                                <span class="metric-value">88.9%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Topological Accuracy:</span>
+                                <span class="metric-value">92.1%</span>
+                            </div>
+                            
+                            <h3>Stream Order Distribution</h3>
+                            <div id="drainage-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Tab -->
+            <div class="tab-content" id="performance">
+                <div class="performance-section">
+                    <h2>Pipeline Performance Analytics</h2>
+                    
+                    <div class="performance-grid">
+                        <div class="performance-card">
+                            <h3>Computational Efficiency</h3>
+                            <div id="efficiency-chart"></div>
+                        </div>
+                        <div class="performance-card">
+                            <h3>Scalability Assessment</h3>
+                            <div id="scalability-chart"></div>
+                        </div>
+                        <div class="performance-card">
+                            <h3>Model Accuracy Comparison</h3>
+                            <div id="accuracy-chart"></div>
+                        </div>
+                        <div class="performance-card">
+                            <h3>Resource Utilization</h3>
+                            <div id="resource-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <footer>
+        <div class="footer-content">
+            <p>Developed by Team Kaarirul</p>
+            <p>Team Leader: Abisheik S</p>
+            <p>Team Members: Dinesh M, Guhan K, Ayan Guchait</p>
+        </div>
+    </footer>
+</body>
+</html>
+

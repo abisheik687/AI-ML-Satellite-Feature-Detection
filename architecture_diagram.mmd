@@ -1,0 +1,61 @@
+graph LR
+    A[Web Dashboard (Streamlit/Dash)]
+
+    subgraph Backend Services
+        B[REST API (Flask)]
+        C[Geospatial Processing Module]
+        D[Deep Learning Inference Module]
+        E[Database (PostGIS/NoSQL)]
+    end
+
+    subgraph Data Sources
+        F[Optical Imagery (Sentinel-2, Resourcesat)]
+        G[SAR Imagery (Sentinel-1)]
+        H[Elevation Models (SRTM, CartoDEM, ASTER)]
+        I[Authoritative Datasets (NRSC-GL, GLIMS, OSM)]
+    end
+
+    subgraph Core Components
+        J[Data Preprocessing]
+        K[Model Training]
+        L[Feature Extraction]
+        M[Validation & Evaluation]
+    end
+
+    A -- Requests --> B
+    B -- Orchestrates --> C
+    B -- Orchestrates --> D
+    C -- Queries/Stores --> E
+    D -- Queries/Stores --> E
+
+    F -- Feeds --> J
+    G -- Feeds --> J
+    H -- Feeds --> J
+    I -- Feeds --> M
+
+    J -- Preprocessed Data --> K
+    J -- Preprocessed Data --> L
+
+    K -- Trained Models --> D
+
+    L -- Extracted Features --> M
+    L -- Extracted Features --> E
+
+    M -- Metrics/Results --> B
+    M -- Metrics/Results --> A
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#bbf,stroke:#333,stroke-width:2px
+    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#bfb,stroke:#333,stroke-width:2px
+    style F fill:#ccf,stroke:#333,stroke-width:2px
+    style G fill:#ccf,stroke:#333,stroke-width:2px
+    style H fill:#ccf,stroke:#333,stroke-width:2px
+    style I fill:#ccf,stroke:#333,stroke-width:2px
+    style J fill:#fcf,stroke:#333,stroke-width:2px
+    style K fill:#fcf,stroke:#333,stroke-width:2px
+    style L fill:#fcf,stroke:#333,stroke-width:2px
+    style M fill:#fcf,stroke:#333,stroke-width:2px
+
+
