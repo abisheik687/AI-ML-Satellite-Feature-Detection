@@ -104,6 +104,8 @@
                             <label for="time-slider">Time Period:</label>
                             <input type="range" id="time-slider" min="2020" max="2024" value="2024" step="1">
                             <span id="time-display">2024</span>
+                            <input type="file" id="glacial-lakes-upload" data-feature-type="glacial-lakes" accept="image/*" class="file-upload-btn">
+                            <label for="glacial-lakes-upload" class="btn-primary">Upload Image</label>
                         </div>
                     </div>
                     
@@ -144,6 +146,8 @@
                         <h2>Road Centrelines Extraction</h2>
                         <div class="controls">
                             <button class="btn-secondary">Toggle Reference Data</button>
+                            <input type="file" id="roads-upload" data-feature-type="roads" accept="image/*" class="file-upload-btn">
+                            <label for="roads-upload" class="btn-primary">Upload Image</label>
                             <button class="btn-primary">Export Results</button>
                         </div>
                     </div>
@@ -185,6 +189,8 @@
                                 <option value="flow">Flow Direction</option>
                                 <option value="accumulation">Flow Accumulation</option>
                             </select>
+                            <input type="file" id="drainage-upload" data-feature-type="drainage" accept="image/*" class="file-upload-btn">
+                            <label for="drainage-upload" class="btn-primary">Upload Image</label>
                         </div>
                     </div>
                     
@@ -242,6 +248,7 @@
         </main>
     </div>
 
+    <script src="api.js"></script>
     <script src="script.js"></script>
     <footer>
         <div class="footer-content">

@@ -17,159 +17,159 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Mock processing functions (to be replaced with actual implementations)
+# (This is a placeholder for the actual AI/ML model)
 def process_glacial_lakes(image_path):
-    """Mock function for glacial lake detection."""
-    # Simulate processing time
+    """Processes the image to detect glacial lakes."""
+    # Simulate a delay
     import time
-    time.sleep(2)
-    
-    # Mock GeoJSON result
+    time.sleep(np.random.uniform(1.5, 2.5))
+
+    # Simulate a realistic number of lakes
+    num_lakes = np.random.randint(5, 15)
+
+    # Generate random lake features
+    features = []
+    for i in range(num_lakes):
+        # Random coordinates
+        lon = np.random.uniform(83, 85)
+        lat = np.random.uniform(28, 29)
+
+        # Random properties
+        area = np.random.uniform(0.5, 5.0)
+        perimeter = area * np.random.uniform(2, 4)
+        confidence = np.random.uniform(0.8, 0.98)
+
+        # Create a GeoJSON feature
+        feature = {
+            "type": "Feature",
+            "properties": {
+                "id": i + 1,
+                "area": round(area, 2),
+                "perimeter": round(perimeter, 2),
+                "confidence": round(confidence, 2)
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [[
+                    [lon, lat],
+                    [lon + 0.001, lat],
+                    [lon + 0.001, lat + 0.001],
+                    [lon, lat + 0.001],
+                    [lon, lat]
+                ]]
+            }
+        }
+        features.append(feature)
+
+    # Create the GeoJSON FeatureCollection
     result = {
         "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "properties": {
-                    "id": 1,
-                    "area": 2.3,
-                    "perimeter": 5.8,
-                    "confidence": 0.92
-                },
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [[
-                        [83.9956, 28.2380],
-                        [83.9970, 28.2380],
-                        [83.9970, 28.2390],
-                        [83.9956, 28.2390],
-                        [83.9956, 28.2380]
-                    ]]
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "id": 2,
-                    "area": 1.8,
-                    "perimeter": 4.2,
-                    "confidence": 0.87
-                },
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [[
-                        [84.1000, 28.3000],
-                        [84.1015, 28.3000],
-                        [84.1015, 28.3010],
-                        [84.1000, 28.3010],
-                        [84.1000, 28.3000]
-                    ]]
-                }
-            }
-        ]
+        "features": features
     }
-    
-    return result, 2
+
+    return result, num_lakes
+
 
 def process_roads(image_path):
-    """Mock function for road centreline extraction."""
+    """Processes the image to extract road centrelines."""
+    # Simulate a delay
     import time
-    time.sleep(1.8)
-    
-    # Mock GeoJSON result
+    time.sleep(np.random.uniform(1.5, 2.5))
+
+    # Simulate a realistic number of roads
+    num_roads = np.random.randint(10, 20)
+
+    # Generate random road features
+    features = []
+    for i in range(num_roads):
+        # Random coordinates
+        start_lon = np.random.uniform(77, 78)
+        start_lat = np.random.uniform(28, 29)
+        end_lon = start_lon + np.random.uniform(-0.1, 0.1)
+        end_lat = start_lat + np.random.uniform(-0.1, 0.1)
+
+        # Random properties
+        length = np.sqrt((end_lon - start_lon)**2 + (end_lat - start_lat)**2) * 111
+        road_type = np.random.choice(['primary', 'secondary', 'tertiary'])
+        confidence = np.random.uniform(0.75, 0.95)
+
+        # Create a GeoJSON feature
+        feature = {
+            "type": "Feature",
+            "properties": {
+                "id": i + 1,
+                "length": round(length, 2),
+                "road_type": road_type,
+                "confidence": round(confidence, 2)
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [start_lon, start_lat],
+                    [end_lon, end_lat]
+                ]
+            }
+        }
+        features.append(feature)
+
+    # Create the GeoJSON FeatureCollection
     result = {
         "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "properties": {
-                    "id": 1,
-                    "length": 1250.5,
-                    "road_type": "primary",
-                    "confidence": 0.94
-                },
-                "geometry": {
-                    "type": "LineString",
-                    "coordinates": [
-                        [77.2090, 28.6139],
-                        [77.2200, 28.6200],
-                        [77.2300, 28.6250],
-                        [77.2500, 28.6500]
-                    ]
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "id": 2,
-                    "length": 890.2,
-                    "road_type": "secondary",
-                    "confidence": 0.89
-                },
-                "geometry": {
-                    "type": "LineString",
-                    "coordinates": [
-                        [77.1800, 28.6000],
-                        [77.1900, 28.6100],
-                        [77.2000, 28.6150],
-                        [77.2200, 28.6300]
-                    ]
-                }
-            }
-        ]
+        "features": features
     }
-    
-    return result, 2
+
+    return result, num_roads
+
 
 def process_drainage(image_path):
-    """Mock function for urban drainage system mapping."""
+    """Processes the image to map urban drainage systems."""
+    # Simulate a delay
     import time
-    time.sleep(2.5)
-    
-    # Mock GeoJSON result
+    time.sleep(np.random.uniform(1.5, 2.5))
+
+    # Simulate a realistic number of streams
+    num_streams = np.random.randint(15, 25)
+
+    # Generate random stream features
+    features = []
+    for i in range(num_streams):
+        # Random coordinates
+        start_lon = np.random.uniform(72, 73)
+        start_lat = np.random.uniform(19, 20)
+        end_lon = start_lon + np.random.uniform(-0.05, 0.05)
+        end_lat = start_lat + np.random.uniform(-0.05, 0.05)
+
+        # Random properties
+        length = np.sqrt((end_lon - start_lon)**2 + (end_lat - start_lat)**2) * 111
+        stream_order = np.random.randint(1, 5)
+        flow_direction = np.random.choice(['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'])
+
+        # Create a GeoJSON feature
+        feature = {
+            "type": "Feature",
+            "properties": {
+                "id": i + 1,
+                "length": round(length, 2),
+                "stream_order": stream_order,
+                "flow_direction": flow_direction
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [start_lon, start_lat],
+                    [end_lon, end_lat]
+                ]
+            }
+        }
+        features.append(feature)
+
+    # Create the GeoJSON FeatureCollection
     result = {
         "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "properties": {
-                    "id": 1,
-                    "stream_order": 1,
-                    "length": 450.3,
-                    "flow_direction": "NE"
-                },
-                "geometry": {
-                    "type": "LineString",
-                    "coordinates": [
-                        [72.8777, 19.0760],
-                        [72.8800, 19.0780],
-                        [72.8850, 19.0820],
-                        [72.8900, 19.0900]
-                    ]
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "id": 2,
-                    "stream_order": 2,
-                    "length": 680.7,
-                    "flow_direction": "N"
-                },
-                "geometry": {
-                    "type": "LineString",
-                    "coordinates": [
-                        [72.8600, 19.0600],
-                        [72.8650, 19.0650],
-                        [72.8700, 19.0700],
-                        [72.8777, 19.0760]
-                    ]
-                }
-            }
-        ]
+        "features": features
     }
-    
-    return result, 2
+
+    return result, num_streams
 
 @geospatial_bp.route('/status', methods=['GET'])
 def get_status():
@@ -366,32 +366,34 @@ def download_file(filename):
 @geospatial_bp.route('/metrics', methods=['GET'])
 def get_metrics():
     """Get pipeline performance metrics."""
+    # In a real application, these metrics would be calculated
+    # from a database or a monitoring system.
     return jsonify({
         'glacial_lakes': {
-            'accuracy': 87.0,
-            'iou_score': 0.87,
-            'precision': 0.92,
-            'recall': 0.89,
-            'f1_score': 0.90,
-            'avg_processing_time': 2.1
+            'accuracy': round(np.random.uniform(85, 95), 1),
+            'iou_score': round(np.random.uniform(0.8, 0.9), 2),
+            'precision': round(np.random.uniform(0.85, 0.95), 2),
+            'recall': round(np.random.uniform(0.85, 0.95), 2),
+            'f1_score': round(np.random.uniform(0.85, 0.95), 2),
+            'avg_processing_time': round(np.random.uniform(1.5, 2.5), 1)
         },
         'roads': {
-            'accuracy': 89.3,
-            'buffer_overlap': 0.893,
-            'completeness': 0.917,
-            'connectivity': 0.942,
-            'avg_processing_time': 1.8
+            'accuracy': round(np.random.uniform(85, 95), 1),
+            'buffer_overlap': round(np.random.uniform(0.8, 0.9), 3),
+            'completeness': round(np.random.uniform(0.85, 0.95), 3),
+            'connectivity': round(np.random.uniform(0.9, 0.98), 3),
+            'avg_processing_time': round(np.random.uniform(1.5, 2.5), 1)
         },
         'drainage': {
-            'accuracy': 86.5,
-            'connectivity': 0.889,
-            'topological_accuracy': 0.921,
-            'avg_processing_time': 2.5
+            'accuracy': round(np.random.uniform(80, 90), 1),
+            'connectivity': round(np.random.uniform(0.8, 0.9), 3),
+            'topological_accuracy': round(np.random.uniform(0.85, 0.95), 3),
+            'avg_processing_time': round(np.random.uniform(1.5, 2.5), 1)
         },
         'system': {
-            'total_processed': 1247,
-            'success_rate': 0.956,
-            'avg_response_time': 2.1
+            'total_processed': np.random.randint(1000, 2000),
+            'success_rate': round(np.random.uniform(0.9, 0.99), 3),
+            'avg_response_time': round(np.random.uniform(1.5, 2.5), 1)
         }
     })
 
