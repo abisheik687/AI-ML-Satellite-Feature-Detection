@@ -10,13 +10,13 @@ A comprehensive and scalable geospatial intelligence system that leverages advan
 
 ### 🎯 Key Features
 
-- **🛰️ Multi-source Satellite Data**: Sentinel-1/2, Landsat series support
-- **🤖 Advanced AI/ML Models**: U-Net, DeepLabV3+, SAM, Random Forest
-- **🎯 Feature Detection**: Glacial lakes, roads, drainage systems
-- **📊 Interactive Dashboard**: Real-time processing and visualization
-- **🌍 Geospatial Export**: GeoJSON, Shapefile, KML formats
-- **📈 Change Analysis**: Multi-temporal comparison capabilities
-- **☁️ Cloud Integration**: Google Earth Engine compatibility
+- **🛰️ Multi-source Satellite Data**: Support for Sentinel-1/2, Landsat series, and other major satellite platforms.
+- **🤖 Advanced AI/ML Models**: A suite of state-of-the-art models including U-Net, DeepLabV3+, and the Segment Anything Model (SAM) for robust feature extraction.
+- **🎯 Feature Detection**: High-accuracy detection of key features such as glacial lakes, road networks, and urban drainage systems.
+- **📊 Interactive Dashboard**: A user-friendly web interface for real-time processing, visualization, and analysis of geospatial data.
+- **🌍 Geospatial Export**: Seamless export of results in standard geospatial formats like GeoJSON, Shapefile, and KML.
+- **📈 Change Analysis**: Powerful tools for multi-temporal change analysis to monitor environmental and infrastructural dynamics.
+- **☁️ Cloud Integration**: Compatibility with Google Earth Engine for large-scale geospatial data processing and analysis.
 
 ---
 
@@ -26,14 +26,16 @@ A comprehensive and scalable geospatial intelligence system that leverages advan
 
 #### Quick Start Guide
 
-1.  **Upload**: Drop satellite images (TIFF, PNG, JPEG)
-2.  **Process**: Select AI/ML model (U-Net, DeepLabV3+, SAM)
-3.  **Analyze**: View results with confidence scores
-4.  **Export**: Download GeoJSON/Shapefile results
+1.  **Upload**: Upload your satellite images in TIFF, PNG, or JPEG format.
+2.  **Process**: Select an AI/ML model (U-Net, DeepLabV3+, SAM) to process the image.
+3.  **Analyze**: Visualize the results on an interactive map with confidence scores and other metrics.
+4.  **Export**: Download the extracted features in your preferred geospatial format.
 
 ---
 
 ### 🏗️ System Architecture
+
+Our system is built on a modern, scalable architecture that separates the frontend, backend, and AI/ML models into distinct components. This modular design allows for independent development, deployment, and scaling of each component.
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
@@ -55,6 +57,8 @@ A comprehensive and scalable geospatial intelligence system that leverages advan
 
 ### 🧠 AI/ML Models
 
+We employ a range of AI/ML models to provide a comprehensive solution for feature extraction and analysis. Each model is optimized for a specific task, ensuring high accuracy and performance.
+
 | Model         | Purpose                  | Accuracy | Speed  |
 |---------------|--------------------------|----------|--------|
 | U-Net         | Semantic segmentation    | 87%      | ~30s   |
@@ -66,24 +70,28 @@ A comprehensive and scalable geospatial intelligence system that leverages advan
 
 ### 🎯 Target Features
 
+Our system is designed to detect and analyze a variety of critical environmental and infrastructural features.
+
 - **🏔️ Glacial Lakes (Blue)**
-  - Water body detection using spectral signatures
-  - GLOF risk assessment applications
-  - 87-92% detection accuracy
+  - **Description**: Detection of water bodies using spectral signatures and other features.
+  - **Application**: GLOF risk assessment, water resource management, and climate change monitoring.
+  - **Accuracy**: 87-92% detection accuracy.
 
 - **🛣️ Road Networks (Orange)**
-  - Linear feature extraction and connectivity
-  - Transportation infrastructure mapping
-  - 82-89% accuracy for major roads
+  - **Description**: Extraction of linear features and analysis of road network connectivity.
+  - **Application**: Transportation infrastructure mapping, urban planning, and logistics optimization.
+  - **Accuracy**: 82-89% accuracy for major roads.
 
 - **💧 Drainage Systems (Green)**
-  - Hydrological feature detection
-  - Urban flood risk assessment
-  - 78-86% accuracy in urban areas
+  - **Description**: Detection of hydrological features and analysis of drainage patterns.
+  - **Application**: Urban flood risk assessment, water management, and environmental monitoring.
+  - **Accuracy**: 78-86% accuracy in urban areas.
 
 ---
 
 ### 🚀 Quick Deployment
+
+We provide a simple and straightforward deployment process using Docker.
 
 #### Docker (Recommended)
 
@@ -94,6 +102,8 @@ cd satellite-feature-detection
 ```
 
 #### Local Development
+
+For local development, you can run the backend and frontend separately.
 
 ```bash
 # Backend
@@ -113,13 +123,15 @@ pnpm run dev
 
 ### 📡 API Documentation
 
+Our system exposes a RESTful API for programmatic access to its features.
+
 #### Core Endpoints
 
-- `POST /api/satellite/upload` - Upload satellite images
-- `POST /api/satellite/process` - Process with AI/ML models
-- `GET /api/satellite/download/{id}` - Download results
-- `POST /api/visualization/interactive-map` - Generate maps
-- `GET /api/visualization/health` - System health check
+- `POST /api/satellite/upload`: Upload satellite images for processing.
+- `POST /api/satellite/process`: Process uploaded images with the selected AI/ML model.
+- `GET /api/satellite/download/{id}`: Download the results of a processing task.
+- `POST /api/visualization/interactive-map`: Generate interactive maps for visualization.
+- `GET /api/visualization/health`: Check the health of the system.
 
 #### Example Usage
 
@@ -141,14 +153,18 @@ results = response.json()
 
 ### 📊 Performance Metrics
 
-- **Processing Speed**: 30-45 seconds for 1024x1024 images
-- **Memory Usage**: 2-4GB RAM for typical operations
-- **Accuracy**: 78-91% depending on model and feature type
-- **Uptime**: 99.5% availability with health monitoring
+Our system is designed for high performance and reliability.
+
+- **Processing Speed**: 30-45 seconds for 1024x1024 images.
+- **Memory Usage**: 2-4GB RAM for typical operations.
+- **Accuracy**: 78-91% depending on the model and feature type.
+- **Uptime**: 99.5% availability with health monitoring.
 
 ---
 
 ### 💰 Cost Analysis (Hackathon Implementation)
+
+The following is a cost analysis for the implementation of this project during the hackathon.
 
 | Component     | Cost   | Description                    |
 |---------------|--------|--------------------------------|
@@ -162,6 +178,8 @@ results = response.json()
 ---
 
 ### 🌍 Applications
+
+Our system has a wide range of applications across various domains.
 
 #### Environmental Monitoring
 - Climate change impact assessment
@@ -184,6 +202,8 @@ results = response.json()
 ---
 
 ### 🛠️ Technology Stack
+
+Our system is built on a modern technology stack that is optimized for performance, scalability, and reliability.
 
 | Category     | Technologies                                       |
 |--------------|----------------------------------------------------|
@@ -231,4 +251,4 @@ This project is licensed under the MIT License - see the `LICENSE` file for deta
 - ESA Copernicus Programme for Sentinel satellite data
 - NASA/USGS for Landsat imagery
 - Google Earth Engine for cloud computing platform
-- Open source community for frameworks and libraries
+- The open source community for their invaluable frameworks and libraries
